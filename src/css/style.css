@@ -1,0 +1,135 @@
+/* 1. Configurações Gerais (Reset e Variáveis) */
+:root {
+    --primary-dark: #2c0404;    /* Seu bordô original */
+    --accent-gold: #d4af37;     /* Seu dourado metálico */
+    --text-light: #fdfdfd;
+    --text-muted: #e0e0e0;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+/* 2. Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamanho responsivo */
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-gold);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* 3. Botão de Interação (UX) */
+.btn-iniciar {
+    background-color: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.btn-iniciar:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* 4. Container Principal (Grid da Vitrine) */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+.wine-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wine-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.wine-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    filter: sepia(30%) contrast(1.1); /* Toque sofisticado nas imagens */
+}
+
+.wine-card p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent-gold);
+}
+
+/* 5. Rodapé */
+footer {
+    margin-top: auto;
+    padding: 40px 0 20px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* 6. Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    main {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+    }
+}
